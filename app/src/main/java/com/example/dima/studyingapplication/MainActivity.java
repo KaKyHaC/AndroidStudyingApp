@@ -1,6 +1,7 @@
 package com.example.dima.studyingapplication;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -16,6 +17,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
     EditText editText;
     Button button;
     TextView textView;
+    Button buttonSecondActivity;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,8 +30,16 @@ public class MainActivity extends Activity implements View.OnClickListener{
         editText = findViewById(R.id.edit_text);
         button = findViewById(R.id.button);
         textView = findViewById(R.id.text_view);
+        buttonSecondActivity = findViewById(R.id.button_second_activity);
 
         button.setOnClickListener(this);
+        buttonSecondActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
